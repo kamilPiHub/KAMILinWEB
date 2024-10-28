@@ -1,0 +1,36 @@
+body {
+    background-color:ivory ;
+}
+.content {
+    margin-bottom: 20px;
+}
+.row {
+    display: flex;
+    
+}
+.column {
+    flex: 1; /* Equal width for each column */
+   
+    
+}
+.images {
+    display: flex;
+    justify-content:space-around ;
+    
+}
+.image-container {
+    text-align: center;
+    width: 24%; /* Slightly less than 25% for spacing */
+}
+img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    
+}
+.link , p{
+    text-align: center;
+    
+}
+div {
+    padding: 5px;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Kamil Pizon" />
+    <title>Formularz</title>
+    <link rel="stylesheet" href="podStrona2css.css">
+</head>
+<body>
+    <div class="myDiv">
+    <form action="/submit" method="post">
+      
+        <div class="form-row">
+            <div>
+                <label for="imie">Imię:</label>
+                <input type="text" id="imie" name="imie" placeholder="Wpisz imię" required title="Proszę uzupełnić imię">
+            </div>
+            <div>
+                <label for="nazwisko">Nazwisko:</label>
+                <input type="text" id="nazwisko" name="nazwisko" placeholder="Wpisz nazwisko" required title="Proszę uzupełnić nazwisko">
+            </div>
+        </div>
+
+       
+        <div class="form-row">
+            <div>
+                <label for="ulica">Ulica:</label>
+                <input type="text" id="ulica" name="ulica" placeholder="Wpisz ulicę" required title="Proszę uzupełnić ulicę">
+            </div>
+            <div>
+                <label for="numer_domu">Numer domu:</label>
+                <input type="text" id="numer_domu" name="numer_domu" placeholder="Wpisz numer domu" required title="Proszę uzupełnić numer domu">
+            </div>
+        </div>
+
+        
+        <div class="form-row">
+            <div>
+                <label for="numer_mieszkania">Numer mieszkania:</label>
+                <input type="text" id="numer_mieszkania" name="numer_mieszkania" placeholder="Wpisz numer mieszkania" required title="Proszę uzupełnić numer mieszkania">
+            </div>
+            <div>
+                <label for="telefon">Telefon:</label>
+                <input type="tel" id="telefon" name="telefon" placeholder="Wpisz numer telefonu" required title="Proszę uzupełnić numer telefonu">
+            </div>
+        </div>
+
+        
+        <div class="form-row">
+            <div>
+                <label for="data_urodzenia">Data urodzenia:</label>
+                <input type="date" id="data_urodzenia" name="data_urodzenia" required title="Proszę uzupełnić datę urodzenia">
+            </div>
+            <div>
+                <label for="prawo_jazdy">Czy posiadasz prawo jazdy?</label>
+                <input type="checkbox" id="prawo_jazdy" name="prawo_jazdy">
+            </div>
+        </div>
+
+       
+        <div class="form-row">
+            <div>
+                <label for="plec">Płeć:</label>
+                <select id="plec" name="plec" required title="Proszę wybrać płeć">
+                    <option value="">Wybierz...</option>
+                    <option value="mezczyzna">Mężczyzna</option>
+                    <option value="kobieta">Kobieta</option>
+                    <option value="inna">Inna</option>
+                </select>
+            </div>
+            <div>
+                <label for="miasto">Miasto:</label>
+                <input type="text" id="miasto" name="miasto" placeholder="Wpisz miasto" required title="Proszę uzupełnić miasto">
+            </div>
+        </div>
+
+        
+        <div class="center">
+            <button type="submit">Wyślij</button>
+        </div>
+
+        
+        <div class="center linkPosition">
+            <p><a href="index.html">Wróć do głównej strony</a></p>
+        </div>
+    </form>
+    </div>
+   
+</body>
+</html>
