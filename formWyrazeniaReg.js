@@ -133,18 +133,29 @@ function sprawdzTelefon() {
 }
 
 function sprawdzDataUrodzenia() {
-    obj = document.getElementById('data_urodzenia');
-    txt = obj.value;
-    Wyrazenie = /^\d{4}-\d{2}-\d{2}$/;
-    wynik = Wyrazenie.test(txt);
+    var obj = document.getElementById('data_urodzenia');
+    var txt = obj.value;
+    var Wyrazenie = /^\d{4}-\d{2}-\d{2}$/;
+    var wynik = Wyrazenie.test(txt);
     
     if (wynik) {
-        obj.style.backgroundColor = "";
-        return true;
-    } else {
-        obj.style.backgroundColor = "red";
-        return false;
-    }
+        
+        var dataUrodzenia = new Date(txt);
+        var dzisiaj = new Date();
+
+        
+        dzisiaj = new Date(dzisiaj.getFullYear(), dzisiaj.getMonth(), dzisiaj.getDate()); 
+
+        if (dataUrodzenia > dzisiaj) {
+            obj.style.backgroundColor = "red";
+            return false;
+        } 
+        else {
+            obj.style.backgroundColor = ""; 
+            return true;
+        }
+    
+}
 }
 
 function sprawdzPlec() {
@@ -176,3 +187,4 @@ function sprawdzMiasto() {
         return false;
     }
 }
+
