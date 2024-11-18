@@ -142,10 +142,7 @@ function sprawdzDataUrodzenia() {
         
         var dataUrodzenia = new Date(txt);
         var dzisiaj = new Date();
-
-        
-        dzisiaj = new Date(dzisiaj.getFullYear(), dzisiaj.getMonth(), dzisiaj.getDate()); 
-
+     
         if (dataUrodzenia > dzisiaj) {
             obj.style.backgroundColor = "red";
             return false;
