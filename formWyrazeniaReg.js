@@ -75,7 +75,7 @@ function sprawdzNazwisko() {
 function sprawdzUlica() {
     obj = document.getElementById('ulica');
     txt = obj.value;
-    Wyrazenie = /^[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ0-9\s]+$/;
+    Wyrazenie = /^[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ\s]+$/;
     wynik = Wyrazenie.test(txt);
     
     if (wynik) {
