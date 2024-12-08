@@ -2,19 +2,31 @@
 <?xml-stylesheet type="text/xsl" href="faktura.xsl"?>
 <invoice>
     <seller>
-        <name>Jan Kowalski</name>
-        <address>Warszawa, ul. Polna 12</address>
+        <name>Robert Lewandowski</name>
+        <address>Warszawa, ul. Futbolu 1</address>
     </seller>
     <buyer>
-        <name></name>
-        <address></address>
+        <name>Kamil Pizon</name>
+        <address>Warszawa, ul. Mazowiecka 13</address>
     </buyer>
     <details>
-        <date></date>
         <item>
-            <name></name>
-            <quantity></quantity>
-            <price></price>
+            <name>Laptop</name>
+            <quantity>1</quantity>
+            <priceNetto>3850.00</priceNetto>
+            <priceBrutto>5000.00</priceBrutto>
+        </item>
+        <item>
+            <name>Tablet</name>
+            <quantity>1</quantity>
+            <priceNetto>1540.00</priceNetto>
+            <priceBrutto>2000.00</priceBrutto>
+        </item>
+        <item>
+            <name>Telefon</name>
+            <quantity>1</quantity>
+            <priceNetto>1155.00</priceNetto>
+            <priceBrutto>1500.00</priceBrutto>
         </item>
     </details>
     <summary>
