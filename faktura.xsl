@@ -50,14 +50,14 @@
         </head>
         <body>
             <div class="invoice-container">
-                <!-- Dane sprzedawcy -->
+                
                 <div class="field" id="sellerName">
                     <xsl:value-of select="invoice/seller/name" />
                 </div>
                 <div class="field" id="sellerAddress">
                     <xsl:value-of select="invoice/seller/address" />
                 </div>
-                <!-- Dane nabywcy -->
+                
                 <div class="field" id="buyerName">
                     <xsl:value-of select="invoice/buyer/name" />
                 </div>
@@ -66,7 +66,7 @@
                 </div>
                
                 
-                <!-- Pozycje faktury -->
+                
                 <xsl:for-each select="invoice/details/item">
                     <div class="field itemName" style="top: {205 + position() * 24}px;">
                         <xsl:value-of select="name" />
@@ -82,7 +82,7 @@
                     </div>
                 </xsl:for-each>
                 
-                <!-- Suma -->
+                
                 <div class="field" id="total">
                     <xsl:value-of select="format-number(sum(invoice/details/item/priceBrutto), '#.00')" />
                 </div>
