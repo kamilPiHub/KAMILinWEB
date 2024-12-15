@@ -80,7 +80,7 @@
                     </div>
                 </xsl:for-each>
 
-                <!-- Formatowanie sumy ręcznie -->
+                
                 <div class="field" id="total">
                     <xsl:value-of select="invoice/summary/total" />
                 </div>
