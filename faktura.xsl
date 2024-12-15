@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+    <xsl:output method="html" doctype-public="XSLT-compatibility" encoding="UTF-8" />
     <xsl:template match="/">
-        <html>
+        <html xmlns="http://www.w3.org/1999/xhtml">
         <head>
             <title>Faktura</title>
             <style>
@@ -12,22 +13,21 @@
                     justify-content: center;
                     align-items: center;
                     min-height: 100vh;
-                    background-color: #f8f8f8; 
-                    overflow: hidden; 
+                    background-color: #f8f8f8;
+                    overflow: hidden;
                 }
 
                 .invoice-container {
-                    width: 100%; /* Ustalamy szerokość kontenera na 100% */
-                    height: 100%; /* Ustalamy wysokość kontenera na 100% */
+                    width: 100%;
+                    height: 100%;
                     position: relative;
                     background: url('https://kamilpihub.github.io/KAMILinWEB/blankiet-faktury.jpg') no-repeat center center;
-                    background-size: contain; /* Dopasowanie obrazu do kontenera */
-                    background-attachment: fixed; /* Tło nie przesuwa się */
-                    background-color: white; /* Tło w przypadku pustych obszarów */
-                    background-repeat: no-repeat; /* Nie powtarzamy obrazu */
+                    background-size: contain;
+                    background-attachment: fixed;
+                    background-color: white;
                     display: flex;
                     flex-direction: column;
-                    justify-content: flex-start; /* Wyrównanie zawartości w górnej części */
+                    justify-content: flex-start;
                     align-items: center;
                     overflow: auto;
                 }
@@ -37,6 +37,7 @@
                     font-size: 14px;
                     color: black;
                 }
+
                 #sellerName { top: 50px; left: 350px; width: 300px; }
                 #sellerAddress { top: 70px; left: 350px; width: 300px; }
                 #buyerName { top: 130px; left: 430px; width: 300px; }
@@ -44,47 +45,48 @@
                 .itemName { width: 300px; left: 350px; position: absolute; }
                 .itemQuantity { width: 100px; left: 777px; position: absolute; }
                 .itemNetto { width: 100px; left: 840px; position: absolute; }
-                .itemBrutto  { width: 100px; left: 940px; position: absolute; }
+                .itemBrutto { width: 100px; left: 940px; position: absolute; }
                 #total { top: 350px; left: 740px; width: 100px; font-weight: bold; }
             </style>
         </head>
         <body>
             <div class="invoice-container">
-                
+                <!-- Dane sprzedawcy -->
                 <div class="field" id="sellerName">
                     <xsl:value-of select="invoice/seller/name" />
                 </div>
                 <div class="field" id="sellerAddress">
                     <xsl:value-of select="invoice/seller/address" />
                 </div>
-                
+
+                <!-- Dane kupującego -->
                 <div class="field" id="buyerName">
                     <xsl:value-of select="invoice/buyer/name" />
                 </div>
                 <div class="field" id="buyerAddress">
                     <xsl:value-of select="invoice/buyer/address" />
                 </div>
-               
-                
-                
+
+                <!-- Szczegóły pozycji na fakturze -->
                 <xsl:for-each select="invoice/details/item">
-                    <div class="field itemName" style="top: {205 + position() * 24}px;">
+                    <xsl:variable name="topPosition" select="205 + position() * 24" />
+                    <div class="field itemName" style="top: {$topPosition}px;">
                         <xsl:value-of select="name" />
                     </div>
-                    <div class="field itemQuantity" style="top: {205 + position() * 24}px;">
+                    <div class="field itemQuantity" style="top: {$topPosition}px;">
                         <xsl:value-of select="quantity" />
                     </div>
-                    <div class="field itemBrutto" style="top: {205 + position() * 24}px;">
+                    <div class="field itemBrutto" style="top: {$topPosition}px;">
                         <xsl:value-of select="priceBrutto" />
                     </div>
-                    <div class="field itemNetto" style="top: {205 + position() * 24}px;">
+                    <div class="field itemNetto" style="top: {$topPosition}px;">
                         <xsl:value-of select="priceNetto" />
                     </div>
                 </xsl:for-each>
-                
-                
+
+                <!-- Łączna kwota -->
                 <div class="field" id="total">
-                    <xsl:value-of select="format-number(sum(invoice/details/item/priceBrutto), '#.00')" />
+                    <xsl:value-of select="invoice/summary/total" />
                 </div>
             </div>
         </body>
