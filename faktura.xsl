@@ -12,8 +12,8 @@
                     justify-content: center;
                     align-items: center;
                     min-height: 100vh;
-                    background-color: #f8f8f8; /* Kolor tła strony */
-                    overflow: hidden; /* Ukrycie przewijania */
+                    background-color: #f8f8f8; 
+                    overflow: hidden; 
                 }
 
                 .invoice-container {
