@@ -82,10 +82,7 @@
 
                 <!-- Formatowanie sumy ręcznie -->
                 <div class="field" id="total">
-                    <xsl:variable name="bruttoSum" select="sum(invoice/details/item/priceBrutto)" />
-                    <xsl:variable name="bruttoInteger" select="floor($bruttoSum)" />
-                    <xsl:variable name="bruttoDecimal" select="substring-after($bruttoSum, '.')" />
-                    <xsl:value-of select="concat($bruttoInteger, '.', substring($bruttoDecimal, 1, 2))" />
+                    <xsl:value-of select="invoice/summary/total" />
                 </div>
             </div>
         </body>
