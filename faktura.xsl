@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:template match="/">
-        <html>
+        <html xmlns="http://www.w3.org/1999/xhtml">
         <head>
             <title>Faktura</title>
             <style>
@@ -66,21 +66,21 @@
                 </div>
 
                 <xsl:for-each select="invoice/details/item">
-                    <div class="field itemName" style="top: {205 + position() * 24}px;">
+                    <xsl:variable name="topPosition" select="205 + position() * 24" />
+                    <div class="field itemName" style="top: {$topPosition}px;">
                         <xsl:value-of select="name" />
                     </div>
-                    <div class="field itemQuantity" style="top: {205 + position() * 24}px;">
+                    <div class="field itemQuantity" style="top: {$topPosition}px;">
                         <xsl:value-of select="quantity" />
                     </div>
-                    <div class="field itemBrutto" style="top: {205 + position() * 24}px;">
+                    <div class="field itemBrutto" style="top: {$topPosition}px;">
                         <xsl:value-of select="priceBrutto" />
                     </div>
-                    <div class="field itemNetto" style="top: {205 + position() * 24}px;">
+                    <div class="field itemNetto" style="top: {$topPosition}px;">
                         <xsl:value-of select="priceNetto" />
                     </div>
                 </xsl:for-each>
 
-                
                 <div class="field" id="total">
                     <xsl:value-of select="invoice/summary/total" />
                 </div>
